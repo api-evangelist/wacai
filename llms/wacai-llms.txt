@@ -1,0 +1,34 @@
+# Wacai (挖财)
+
+> Wacai (挖财, Hangzhou Wacai Network Technology Co., Ltd.) is a Chinese fintech and personal-finance company founded in 2009, best known for its "挖财记账" personal accounting/bookkeeping app and internet wealth-management platform. It operates a partner-facing open API gateway ("挖财开放平台") with appKey/appSecret signed requests and official client SDKs.
+
+## Company
+- [Wacai website](https://www.wacai.com): Corporate site and product pages.
+- [About Wacai](https://www.wacai.com/intro/aboutus.jsp): Company background.
+- [Wacai on GitHub](https://github.com/wacai): First-party open-source org (SDKs, infrastructure).
+
+## Open Platform / API Gateway
+- Gateway entry: https://open.wacai.com/gw/api_entry (HTTPS POST, JSON, UTF-8; HTTP 200 ok / 400 error).
+- Auth: appKey/appSecret HMAC request signing over apiName|apiVersion|headerString|bodyMd5 (headers x-wac-timestamp, x-wac-app-key/x-wac-access-token, x-wac-version).
+- Operations addressed by (apiName, apiVersion), e.g. message.api.push v1.0. No public OpenAPI is published.
+
+## SDKs
+- [Java all-in-one SDK](https://github.com/wacai/wacai-open-sdk): Maven Central com.wacai:wacai-openAllInOne-sdk (1.5.1), + wacai-open-sdk, wacai-token-sdk.
+- [Gateway SDK](https://github.com/wacai/wacai-gateway-sdk): Neptune client, filter-based signing/verification/encryption.
+- [Node.js SDK](https://github.com/wacai/wacai-open-sdk-node)
+- [PHP SDK](https://github.com/wacai/wacai-open-sdk-php)
+- [Go SDK](https://github.com/wacai/wacai-open-sdk-go)
+- [C# SDK](https://github.com/wacai/wacai-open-sdk-csharp)
+- [File client](https://github.com/wacai/wacai-file-client): Maven Central com.wacai:wacai-file-client.
+
+## Protocol docs
+- [Gateway entry](https://github.com/wacai/wacai-open-sdk/blob/master/doc/api_entry.md)
+- [Request signing](https://github.com/wacai/wacai-open-sdk/blob/master/doc/api_sign.md)
+- [Auth](https://github.com/wacai/wacai-open-sdk/blob/master/doc/api_auth.md)
+
+## Artifacts (API Evangelist)
+- [Packages / SDKs](packages/wacai-packages.yml)
+- [Authentication](authentication/wacai-authentication.yml)
+- [Conventions](conventions/wacai-conventions.yml)
+- [Domain security](security/wacai-domain-security.yml)
+- [Well-known probe](well-known/wacai-well-known.yml)

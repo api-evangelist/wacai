@@ -1,0 +1,25 @@
+generated: '2026-07-21'
+method: searched
+# Probed the website host (www.wacai.com) and the open-platform gateway host
+# (open.wacai.com). No /.well-known/ discovery documents are published.
+hosts:
+  - host: https://www.wacai.com
+    documents:
+      - path: /.well-known/security.txt
+        status: 404
+      - path: /.well-known/openid-configuration
+        status: 404
+      - path: /.well-known/oauth-authorization-server
+        status: 404
+      - path: /.well-known/api-catalog
+        status: 404
+      - path: /.well-known/ai-plugin.json
+        status: 404
+      - path: /robots.txt
+        status: 404
+  - host: https://open.wacai.com
+    documents:
+      - path: /.well-known/security.txt
+        status: 404
+      - path: /.well-known/openid-configuration
+        status: 404

@@ -1,0 +1,33 @@
+generated: '2026-07-21'
+method: searched
+source: https://github.com/wacai/wacai-open-sdk/blob/master/doc/api_sign.md
+docs: https://github.com/wacai/wacai-open-sdk/tree/master/doc
+# No OpenAPI/OAS is published for the Wacai open platform, so this profile is
+# reconstructed from the official SDK protocol docs (doc/api_auth.md, api_sign.md,
+# api_entry.md). The gateway uses appKey/appSecret HMAC request signing, NOT OAuth2.
+summary:
+  types: [apiKey, hmac-signature]
+  api_key_in: [header]
+  gateway_entry: https://open.wacai.com/gw/api_entry
+schemes:
+  - name: appKeySignature
+    type: apiKey
+    in: header
+    mode: direct-connect
+    credential_headers:
+      - x-wac-app-key        # app key identifying the caller (direct-connect mode)
+      - x-wac-access-token    # access token (token mode; older SDK versions)
+      - x-wac-timestamp       # request timestamp, participates in signature
+      - x-wac-version         # protocol/interface version
+      - x-wac-signature       # request signature over apiName|apiVersion|headerString|bodyMd5
+    description: >
+      Callers authenticate with an appKey/appSecret pair issued by the Wacai open
+      platform. Each request to the gateway (POST https://open.wacai.com/gw/api_entry)
+      is signed: signPlainText = apiName + "|" + apiVersion + "|" + headerString + "|" + bodyMd5,
+      where headerString is the alphabetically-sorted, ampersand-joined set of signed
+      headers (x-wac-timestamp, x-wac-access-token or x-wac-app-key, x-wac-version).
+      Higher SDK versions drop the token and connect the appKey directly to the gateway.
+  - name: tokenService
+    type: apiKey
+    in: header
+    note: Older SDK versions obtain an access token via the token service (wacai-token-sdk) before calls.

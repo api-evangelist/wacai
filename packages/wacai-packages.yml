@@ -1,0 +1,68 @@
+generated: '2026-07-21'
+method: searched
+source: https://github.com/wacai + https://search.maven.org/search?q=g:com.wacai
+# Wacai Open Platform ("挖财开放平台") client SDKs. The Java SDKs are published to
+# Maven Central under groupId com.wacai; the Node/PHP/Go/C# clients are first-party
+# source packages published in the wacai GitHub org but not on a language registry.
+packages:
+  - language: java
+    registry: maven
+    name: com.wacai:wacai-openAllInOne-sdk
+    version: 1.5.1
+    url: https://mvnrepository.com/artifact/com.wacai/wacai-openAllInOne-sdk
+    repo: https://github.com/wacai/wacai-open-sdk
+    install: "<dependency><groupId>com.wacai</groupId><artifactId>wacai-openAllInOne-sdk</artifactId><version>1.5.1</version></dependency>"
+    official: true
+    note: All-in-one client for the Wacai open API gateway (auth, signing, transport).
+  - language: java
+    registry: maven
+    name: com.wacai:wacai-open-sdk
+    version: 1.5.1
+    url: https://mvnrepository.com/artifact/com.wacai/wacai-open-sdk
+    repo: https://github.com/wacai/wacai-open-sdk
+    official: true
+  - language: java
+    registry: maven
+    name: com.wacai:wacai-token-sdk
+    version: 1.5.1
+    url: https://mvnrepository.com/artifact/com.wacai/wacai-token-sdk
+    official: true
+    note: Token service SDK for the open platform.
+  - language: java
+    registry: maven
+    name: com.wacai:wacai-file-client
+    version: 1.0.4
+    url: https://mvnrepository.com/artifact/com.wacai/wacai-file-client
+    repo: https://github.com/wacai/wacai-file-client
+    official: true
+    note: File gateway client.
+  - language: java
+    registry: github
+    name: wacai-gateway-sdk
+    url: https://github.com/wacai/wacai-gateway-sdk
+    official: true
+    note: OpenApi Gateway SDK (Neptune client, filter-based signing/verification/encryption).
+  - language: javascript
+    registry: github
+    name: wacai-open-sdk-node
+    url: https://github.com/wacai/wacai-open-sdk-node
+    official: true
+    note: Node.js client for the open platform (source-only; not published to npm).
+  - language: php
+    registry: github
+    name: wacai-open-sdk-php
+    url: https://github.com/wacai/wacai-open-sdk-php
+    official: true
+    note: PHP client for the open platform (source-only; not on Packagist).
+  - language: go
+    registry: github
+    name: wacai-open-sdk-go
+    url: https://github.com/wacai/wacai-open-sdk-go
+    official: true
+    note: Golang client for the open platform (demo-stage source; not on pkg.go.dev).
+  - language: csharp
+    registry: github
+    name: wacai-open-sdk-csharp
+    url: https://github.com/wacai/wacai-open-sdk-csharp
+    official: true
+    note: C# client for the open platform (source-only; not on NuGet).

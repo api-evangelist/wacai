@@ -1,0 +1,43 @@
+generated: '2026-07-21'
+method: searched
+source: https://github.com/wacai/wacai-open-sdk/tree/master/doc
+# Cross-cutting request/response semantics of the Wacai open API gateway,
+# reconstructed from the official SDK protocol docs (api_entry.md, api_sign.md,
+# json_extend.md) and the Go/PHP client READMEs. No OpenAPI is published.
+gateway:
+  entry: https://open.wacai.com/gw/api_entry
+  transport: HTTPS
+  http_method: POST            # all calls POST to the single gateway entry
+  content_type: application/json
+  charset: UTF-8
+addressing:
+  style: rpc-over-gateway      # operations addressed by (apiName, apiVersion), not REST paths
+  api_name_example: message.api.push
+  api_version_example: "1.0"
+authentication:
+  style: appKey/appSecret HMAC request signing
+  see: authentication/wacai-authentication.yml
+signing:
+  plain_text: 'apiName + "|" + apiVersion + "|" + headerString + "|" + bodyMd5'
+  header_string: alphabetically-sorted, ampersand-joined signed headers
+  signed_headers: [x-wac-timestamp, x-wac-access-token, x-wac-app-key, x-wac-version]
+serialization:
+  request: JSON body (bizParam); customizable via json_extend
+  passthrough_mode: >
+    Raw byte-buffer body is passed through un-parsed for small-file upload (<=4MB
+    server limit) and custom serialization protocols; bizParam is ignored, result
+    returned as byte[], success determined by exception.
+error_signaling:
+  transport: HTTP status
+  success: 200
+  failure: 400            # abnormal responses return HTTP 400 with error detail in the JSON body
+  envelope: JSON
+idempotency:
+  supported: false        # not documented by the provider
+pagination:
+  supported: unknown      # not documented at the gateway layer (per-API)
+versioning:
+  scheme: per-operation apiVersion parameter (e.g. "1.0"), plus x-wac-version header
+cross_links:
+  authentication: authentication/wacai-authentication.yml
+  packages: packages/wacai-packages.yml

@@ -1,7 +1,27 @@
 aid: wacai
 name: wacai
-description: wacai is a company surfaced as a portfolio company of qiming and added to the API Evangelist
-  network as a stub for enrichment. This profile is a lead awaiting the enrichment pipeline.
+description: >-
+  Wacai (挖财, Hangzhou Wacai Network Technology Co., Ltd.) is a Chinese fintech and
+  personal-finance company founded in 2009, best known for its "挖财记账" personal
+  accounting and bookkeeping app and its internet wealth-management platform. Beyond
+  its consumer apps, Wacai operates a partner-facing open API gateway (挖财开放平台) at
+  open.wacai.com that exposes services through a single JSON-over-HTTPS entry point
+  using appKey/appSecret signed requests, with official client SDKs published for
+  Java (Maven Central), Node.js, PHP, Go, and C#. It was surfaced as a portfolio
+  company of Qiming Venture Partners.
+accessModel:
+  pricing: unknown
+  onboarding: self-serve
+  trial: false
+  try_now: false
+  public: false
+  label: Self-serve signup
+  confidence: medium
+  source:
+  - authentication
+  generated: '2026-07-22'
+  method: derived
+image: https://www.wacai.com/website/favicon.ico
 url: https://raw.githubusercontent.com/api-evangelist/wacai/refs/heads/main/apis.yml
 x-type: company
 x-source: vc-portfolio
@@ -11,15 +31,58 @@ x-tier: stub
 x-tier-reason: portfolio-lead
 specificationVersion: '0.20'
 created: '2026-07-17'
-modified: '2026-07-17'
+modified: '2026-07-21'
 tags:
 - Company
-apis: []
+- Fintech
+- Personal Finance
+- Accounting
+- Wealth Management
+- Open Platform
+- API Gateway
+- China
+apis:
+- name: Wacai Open API Gateway
+  description: >-
+    Partner-facing API gateway for the Wacai open platform. Callers POST JSON to a
+    single gateway entry, addressing operations by (apiName, apiVersion) and
+    authenticating with appKey/appSecret HMAC request signing. No public OpenAPI is
+    published; the protocol and client SDKs are documented in the wacai GitHub org.
+  humanURL: https://github.com/wacai/wacai-open-sdk
+  baseURL: https://open.wacai.com/gw/api_entry
+  properties:
+  - type: SourceCode
+    url: https://github.com/wacai/wacai-open-sdk
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com
 - FN: APIs.json
   email: info@apis.io
 common:
+- type: DomainSecurity
+  url: security/wacai-domain-security.yml
 - type: Website
-  url: https://wacai.com
+  url: https://www.wacai.com
+- type: About
+  url: https://www.wacai.com/intro/aboutus.jsp
+- type: GitHubOrganization
+  url: https://github.com/wacai
+- type: Documentation
+  url: https://github.com/wacai/wacai-open-sdk/tree/master/doc
+- type: Packages
+  url: packages/wacai-packages.yml
+- type: SDKs
+  url: packages/wacai-packages.yml
+- type: Authentication
+  url: authentication/wacai-authentication.yml
+- type: Conventions
+  url: conventions/wacai-conventions.yml
+- type: WellKnown
+  url: well-known/wacai-well-known.yml
+- type: LLMsTxt
+  url: llms/wacai-llms.txt
+x-enrichment:
+  date: '2026-07-21'
+  status: enriched
+  artifacts_added: 6
+  pass: local-v1
