@@ -9,6 +9,17 @@ description: >-
   using appKey/appSecret signed requests, with official client SDKs published for
   Java (Maven Central), Node.js, PHP, Go, and C#. It was surfaced as a portfolio
   company of Qiming Venture Partners.
+deliveryModel:
+  model: unknown
+  open_source: unknown
+  commercial: false
+  callable_host: false
+  label: Delivery model not determined — needs a product licence on record
+  confidence: low
+  source:
+  - repository-unlicensed
+  generated: '2026-08-28'
+  method: derived
 accessModel:
   pricing: unknown
   onboarding: self-serve
@@ -59,6 +70,8 @@ maintainers:
 - FN: APIs.json
   email: info@apis.io
 common:
+- type: IssueTracker
+  url: https://github.com/wacai/wacai-open-sdk/issues
 - type: DomainSecurity
   url: security/wacai-domain-security.yml
 - type: Website
